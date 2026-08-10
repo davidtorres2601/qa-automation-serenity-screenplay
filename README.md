@@ -1,106 +1,94 @@
-\# Farmacias Peruanas - QA Automation
+# Farmacias Peruanas - QA Automation
 
-
-
-Proyecto de automatización de pruebas Web y API desarrollado utilizando \*\*Java, Serenity BDD, Screenplay, Selenium WebDriver, Cucumber y Serenity REST\*\*.
-
-
+Proyecto de automatización de pruebas Web y API desarrollado utilizando **Java, Serenity BDD, Screenplay, Selenium WebDriver, Cucumber y Serenity REST**.
 
 El proyecto contiene pruebas automatizadas para validar funcionalidades de la página de documentación de Selenium y servicios API de ReqRes.
 
+---
 
+## Tecnologías utilizadas
 
-\---
+- Java 17
+- Maven
+- Serenity BDD 5.3.8
+- Serenity Screenplay
+- Serenity Screenplay WebDriver
+- Serenity REST
+- Selenium WebDriver
+- Cucumber 7.34.2
+- JUnit 6
+- Chrome / ChromeDriver
+- ReqRes API
 
+---
 
+## Casos automatizados
 
-\## Tecnologías utilizadas
+El proyecto contiene **6 escenarios automatizados**.
 
+### Pruebas Web - Selenium
 
+1. **Validar página principal de Selenium**
+   - Verifica que la página principal de Selenium se encuentre disponible.
 
-\- Java 17
+2. **Navegar a Documentation**
+   - Verifica la navegación desde la página principal hacia la sección Documentation.
 
-\- Maven
+3. **Validar WebDriver**
+   - Verifica que la sección de Documentation contenga la información relacionada con WebDriver.
 
-\- Serenity BDD 5.3.8
+### Pruebas API - ReqRes
 
-\- Serenity Screenplay
+4. **Listar usuarios**
+   - Consulta la API de usuarios.
+   - Valida el código de respuesta `200`.
+   - Valida que la respuesta contenga usuarios.
 
-\- Serenity Screenplay WebDriver
+5. **Crear usuario**
+   - Realiza una petición para crear un usuario.
+   - Valida el nombre del usuario.
+   - Valida el trabajo del usuario.
 
-\- Serenity REST
+6. **Actualizar usuario**
+   - Realiza una petición para actualizar un usuario.
+   - Valida el nombre actualizado.
+   - Valida el trabajo actualizado.
+   - Valida el código de respuesta `200`.
 
-\- Selenium WebDriver
+---
 
-\- Cucumber 7.34.2
-
-\- JUnit 6
-
-\- Chrome / ChromeDriver
-
-\- ReqRes API
-
-
-
-\---
-
-
-
-\## Estructura del proyecto
-
-
+## Estructura del proyecto
 
 ```text
-
 src
-
 ├── test
-
 │   ├── java
-
 │   │   └── starter
-
 │   │       ├── navigation
-
 │   │       ├── questions
-
 │   │       ├── stepdefinitions
-
 │   │       │   ├── ApiStepDefinitions.java
-
+│   │       │   ├── ParameterDefinitions.java
 │   │       │   └── SeleniumStepDefinitions.java
-
+│   │       │
 │   │       ├── tasks
-
 │   │       │   ├── CreateUser.java
-
 │   │       │   ├── ListUsers.java
-
-│   │       │   ├── UpdateUser.java
-
-│   │       │   ├── SearchFor.java
-
-│   │       │   └── NavigateToWebDriver.java
-
-│   │       └── ui
-
+│   │       │   ├── NavigateToDocumentation.java
+│   │       │   ├── NavigateToWebDriver.java
+│   │       │   └── UpdateUser.java
+│   │       │
+│   │       ├── ui
+│   │       └── CucumberTestSuite.java
 │   │
-
 │   └── resources
-
 │       ├── features
-
-│       │   ├── selenium.feature
-
-│       │   └── reqres.feature
-
-│       ├── serenity.conf
-
+│       │   ├── reqres.feature
+│       │   └── web.feature
+│       │
 │       └── junit-platform.properties
-
 │
-
 ├── pom.xml
-
+├── serenity.properties
+├── .gitignore
 └── README.md
-
