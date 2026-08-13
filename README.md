@@ -1,4 +1,4 @@
-# Farmacias Peruanas - Reto QA Automation
+# QA Automation Challenge - Serenity BDD and Screenplay
 
 Proyecto de automatización de pruebas Web y API desarrollado utilizando **Java, Serenity BDD, Screenplay, Selenium WebDriver, Cucumber y Serenity REST**.
 
@@ -69,19 +69,7 @@ src
 │   │       ├── navigation
 │   │       ├── questions
 │   │       ├── stepdefinitions
-│   │       │   ├── ApiStepDefinitions.java
-│   │       │   ├── ParameterDefinitions.java
-│   │       │   └── SeleniumStepDefinitions.java
-│   │       │
 │   │       ├── tasks
-│   │       │   ├── CreateUser.java
-│   │       │   ├── ListUsers.java
-│   │       │   ├── NavigateToDocumentation.java
-│   │       │   ├── NavigateToWebDriver.java
-│   │       │   ├── SearchFor.java
-│   │       │   ├── SelectFirstResult.java
-│   │       │   └── UpdateUser.java
-│   │       │
 │   │       ├── ui
 │   │       └── CucumberTestSuite.java
 │   │
@@ -101,13 +89,29 @@ src
 
 ---
 
-## Ejecución del proyecto
+## Clonar el repositorio
+
+```bash
+git clone https://github.com/davidtorres2601/qa-automation-serenity-screenplay.git
+```
+
+Ingresar al proyecto:
+
+```bash
+cd qa-automation-serenity-screenplay
+```
+
+---
+
+## Ejecutar las pruebas
 
 ```bash
 mvn clean verify
 ```
 
-## Generación del reporte
+---
+
+## Generar el reporte
 
 ```bash
 mvn serenity:aggregate
@@ -118,3 +122,11 @@ El reporte se genera en:
 ```text
 target/site/serenity/index.html
 ```
+
+---
+
+## Autor
+
+**David Torres**
+
+QA Automation Engineer
