@@ -9,7 +9,9 @@ Feature: Selenium website
     When David navega a Documentation
     Then David debe visualizar el titulo "The Selenium Browser Automation Project"
 
-  Scenario: Validar WebDriver
+  Scenario: Validar el flujo de búsqueda
+
     Given David abre la pagina de Selenium
-    When David navega a Documentation
-    Then David debe visualizar "WebDriver"
+    When David busca "webdriver"
+    And David selecciona el primer resultado
+    Then David debe visualizar el titulo "WebDriver"

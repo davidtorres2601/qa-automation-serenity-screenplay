@@ -1,8 +1,8 @@
-# Farmacias Peruanas - QA Automation
+# Farmacias Peruanas - Reto QA Automation
 
 Proyecto de automatización de pruebas Web y API desarrollado utilizando **Java, Serenity BDD, Screenplay, Selenium WebDriver, Cucumber y Serenity REST**.
 
-El proyecto contiene pruebas automatizadas para validar funcionalidades de la página de documentación de Selenium y servicios API de ReqRes.
+El proyecto contiene pruebas automatizadas para validar funcionalidades de la página web de Selenium y servicios API de ReqRes.
 
 ---
 
@@ -34,15 +34,17 @@ El proyecto contiene **6 escenarios automatizados**.
 2. **Navegar a Documentation**
    - Verifica la navegación desde la página principal hacia la sección Documentation.
 
-3. **Validar WebDriver**
-   - Verifica que la sección de Documentation contenga la información relacionada con WebDriver.
+3. **Validar el flujo de búsqueda**
+   - Realiza una búsqueda del término **WebDriver**.
+   - Selecciona el primer resultado.
+   - Valida que el título de la página corresponda a **WebDriver**.
 
 ### Pruebas API - ReqRes
 
 4. **Listar usuarios**
    - Consulta la API de usuarios.
    - Valida el código de respuesta `200`.
-   - Valida que la respuesta contenga usuarios.
+   - Verifica que la respuesta contenga usuarios.
 
 5. **Crear usuario**
    - Realiza una petición para crear un usuario.
@@ -76,6 +78,8 @@ src
 │   │       │   ├── ListUsers.java
 │   │       │   ├── NavigateToDocumentation.java
 │   │       │   ├── NavigateToWebDriver.java
+│   │       │   ├── SearchFor.java
+│   │       │   ├── SelectFirstResult.java
 │   │       │   └── UpdateUser.java
 │   │       │
 │   │       ├── ui
@@ -86,9 +90,31 @@ src
 │       │   ├── reqres.feature
 │       │   └── web.feature
 │       │
-│       └── junit-platform.properties
+│       ├── junit-platform.properties
+│       └── serenity.conf
 │
 ├── pom.xml
 ├── serenity.properties
 ├── .gitignore
 └── README.md
+```
+
+---
+
+## Ejecución del proyecto
+
+```bash
+mvn clean verify
+```
+
+## Generación del reporte
+
+```bash
+mvn serenity:aggregate
+```
+
+El reporte se genera en:
+
+```text
+target/site/serenity/index.html
+```

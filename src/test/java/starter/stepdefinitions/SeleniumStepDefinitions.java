@@ -5,12 +5,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
 
 import net.serenitybdd.screenplay.targets.Target;
 import starter.navigation.NavigateTo;
 import starter.tasks.NavigateToDocumentation;
+import starter.tasks.SearchFor;
+import starter.tasks.SelectFirstResult;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.containsStringIgnoringCase;
 
 public class SeleniumStepDefinitions {
 
@@ -23,9 +27,12 @@ public class SeleniumStepDefinitions {
 
     @Then("{actor} debe visualizar el titulo {string}")
     public void debeVisualizarElTitulo(Actor actor, String titulo) {
-        actor.attemptsTo(
-                Ensure.that(TheWebPage.title())
-                        .containsIgnoringCase(titulo)
+
+        actor.should(
+                seeThat(
+                        TheWebPage.title(),
+                        containsStringIgnoringCase(titulo)
+                )
         );
     }
 
@@ -36,13 +43,18 @@ public class SeleniumStepDefinitions {
         );
     }
 
-    @Then("{actor} debe visualizar {string}")
-    public void debeVisualizar(Actor actor, String texto) {
+    @When("{actor} busca {string}")
+    public void busca(Actor actor, String texto) {
         actor.attemptsTo(
-                Ensure.that(
-                        Target.the("texto de la pagina")
-                                .locatedBy("//*[contains(normalize-space(.), '" + texto + "')]")
-                ).isDisplayed()
+                SearchFor.term(texto)
         );
     }
+    @When("{actor} selecciona el primer resultado")
+    public void seleccionaElPrimerResultado(Actor actor) {
+
+        actor.attemptsTo(
+                SelectFirstResult.click()
+        );
+    }
+
 }

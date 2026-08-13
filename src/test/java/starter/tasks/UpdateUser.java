@@ -1,13 +1,19 @@
 package starter.tasks;
 
+import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Put;
+import net.thucydides.model.environment.SystemEnvironmentVariables;
+import net.thucydides.model.util.EnvironmentVariables;
 
 public class UpdateUser implements Task {
 
     private final String name;
     private final String job;
+
+    EnvironmentVariables environmentVariables =
+            SystemEnvironmentVariables.createEnvironmentVariables();
 
     public UpdateUser(String name, String job) {
         this.name = name;
@@ -21,17 +27,21 @@ public class UpdateUser implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
+        String apiKey = EnvironmentSpecificConfiguration
+                .from(environmentVariables)
+                .getProperty("reqres.apiKey");
+
         actor.attemptsTo(
                 Put.to("/users/2")
                         .with(request -> request
-                                .header("x-api-key", "free_user_3Hhfq3gIZaJn3y7pVesf7DtVJ2K")
+                                .header("x-api-key", apiKey)
                                 .contentType("application/json")
                                 .body("""
-                                    {
-                                        "name": "%s",
-                                        "job": "%s"
-                                    }
-                                    """.formatted(name, job))
+                                        {
+                                            "name": "%s",
+                                            "job": "%s"
+                                        }
+                                        """.formatted(name, job))
                         )
         );
     }
