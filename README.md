@@ -29,12 +29,15 @@ El proyecto contiene **6 escenarios automatizados**.
 ### Pruebas Web - Selenium
 
 1. **Validar página principal de Selenium**
+
    - Verifica que la página principal de Selenium se encuentre disponible.
 
 2. **Navegar a Documentation**
+
    - Verifica la navegación desde la página principal hacia la sección Documentation.
 
 3. **Validar el flujo de búsqueda**
+
    - Realiza una búsqueda del término **WebDriver**.
    - Selecciona el primer resultado.
    - Valida que el título de la página corresponda a **WebDriver**.
@@ -42,16 +45,19 @@ El proyecto contiene **6 escenarios automatizados**.
 ### Pruebas API - ReqRes
 
 4. **Listar usuarios**
+
    - Consulta la API de usuarios.
    - Valida el código de respuesta `200`.
    - Verifica que la respuesta contenga usuarios.
 
 5. **Crear usuario**
+
    - Realiza una petición para crear un usuario.
    - Valida el nombre del usuario.
    - Valida el trabajo del usuario.
 
 6. **Actualizar usuario**
+
    - Realiza una petición para actualizar un usuario.
    - Valida el nombre actualizado.
    - Valida el trabajo actualizado.
@@ -122,6 +128,12 @@ El reporte se genera en:
 ```text
 target/site/serenity/index.html
 ```
+
+---
+
+## Reporte de ejecución
+
+![Reporte Serenity](images/reporteserenity-david.png)
 
 ---
 
